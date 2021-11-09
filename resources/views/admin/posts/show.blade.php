@@ -7,7 +7,11 @@
                 <h1>Visualizzazione post {{ $post->id }}</h1>
                 <h2>{{ $post->title }}</h2>
                 <p>{!! $post->content !!}</p>
-                <small>Lo slug è: {{ $post->slug }}</small>
+                <small>Lo slug è: {{ $post->slug }}</small><br>
+                <a href="{{ route('admin.posts.index')}}"
+                    class="btn btn-info">
+                    Torna ai posts
+                </a>
             </div>
         </div>
     </div>

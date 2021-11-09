@@ -24,6 +24,14 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
     ->group(function() {
         // pagina di atterraggio dopo il login(con il prefix, l'url è /admin⁄)
         Route::get('/', 'HomeController@index')->name('index');
-        Route::get('/posts', 'PostController@index')->name('posts.index');
-        Route::get('/posts/{post}', 'PostController@show')->name('posts.show');
+        // Route::get('/posts', 'PostController@index')->name('posts.index');
+        // Route::get('/posts/create', 'PostController@create')->name('posts.create');
+        // Route::post('/posts', 'PostController@store')->name('posts.store');
+        // Route::get('/posts/{post}', 'PostController@show')->name('posts.show');
+        // Route::get('/posts/{post}/edit', 'PostController@edit')->name('posts.edit');
+        // Route::post('/posts/{post}', 'PostController@update')->name('posts.update');
+        // Route::delete('/posts/{post}', 'PostController@destroy')->name('posts.destroy');
+        Route::resource('/posts', 'PostController');
     });
+
+    
