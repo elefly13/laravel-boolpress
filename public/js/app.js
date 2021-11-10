@@ -37268,7 +37268,25 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window.confirmDelete = function() {
+//     const resp = confirm('Vuoi cancellare?');
+//     if(!resp) {
+//         event.preventDefault();
+//     }
+// }
+
+
+var deleteForm = document.querySelectorAll('.delete-post');
+console.log('sono io', deleteForm);
+deleteForm.forEach(function (item) {
+  item.addEventListener('click', function (e) {
+    var resp = confirm('Vuoi cancellare?');
+
+    if (!resp) {
+      e.preventDefault();
+    }
+  });
+});
 
 /***/ }),
 

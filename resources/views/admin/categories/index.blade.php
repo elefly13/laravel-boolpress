@@ -14,33 +14,27 @@
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Title</th>
+                    <th scope="col">Name</th>
                     <th scope="col">Slug</th>
-                    <th scope="col">Category</th>
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach ($posts as $post)
+                    @foreach ($categories as $category)
                         <tr>
-                            <th scope="row">{{$post['id']}}</th>
-                            <td>{{$post['title']}}</td>
-                            <td>{{$post['slug']}}</td>
+                            <th scope="row">{{$category['id']}}</th>
+                            <td>{{$category['name']}}</td>
+                            <td>{{$category['slug']}}</td>
                             <td>
-                                @if ($post->category)
-                                    {{$post->category->name}}
-                                @endif
-                            </td>
-                            <td>
-                                <a href="{{ route('admin.posts.show', $post->slug)}}"
+                                <a href="{{ route('admin.categories.show', $category->id)}}"
                                     class="btn btn-info">
                                     Details
                                 </a>
-                                <a href="{{ route('admin.posts.edit', $post->id)}}"
+                                <a href=""
                                     class="btn btn-light">
                                     Modify
                                 </a>
-                                <form class="d-inline-block" method="POST" action="{{ route('admin.posts.destroy', $post->id)}}">
+                                <form class="d-inline-block" method="POST" action="">
                                     @csrf
                                     @method('DELETE')
                                     {{-- <button type="submit" onclick="window.confirmDelete();" class="btn btn-danger" value="Delete">Delete</button> --}}

@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Auth;
 */
 // Rotta che gestisce la homepagevisibile agli utenti 
 Route::get('/', 'HomeController@index')->name('home');
+// rotta che gestisce i post dell'utente generico 
+// Route::resource('/posts', 'PostController');
+ Route::get('guest/posts', 'PostController@index')->name('posts.index');
+ Route::get('guest/posts/{slug}', 'PostController@show')->name('posts.show');
 
 // serie di rotte che gestisconotutto il meccanismo di autenticazione
 Auth::routes();
@@ -32,6 +36,7 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
         // Route::post('/posts/{post}', 'PostController@update')->name('posts.update');
         // Route::delete('/posts/{post}', 'PostController@destroy')->name('posts.destroy');
         Route::resource('/posts', 'PostController');
+        Route::resource('/categories', 'CategoryController');
     });
 
     
