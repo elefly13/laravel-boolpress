@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Auth;
-
-
-class HomeController extends Controller
+use App\Post;
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,23 +14,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        
-            return view('admin.index');
-        
+        $posts = Post::all();
+        return response()->json([
+            'success' => true,
+            'results' => $posts
+        ]);
     }
-    public function profile() {
-        return view('admin.profile');
-    }
-    public function generateToken() {
-        // generiamo una stringa randomica di 80 caratteri
-        $api_token = Str::random(80);
-
-        // assegnamo all'utente corrente l'api token generato 
-        $user = Auth::user();
-        $user->api_token = $api_token;
-        $user->save();
-    }
-
 
     /**
      * Show the form for creating a new resource.
