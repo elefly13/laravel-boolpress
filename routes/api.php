@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/posts', 'Api\PostController@index')->middleware(('api_token_check'));
+Route::get('/posts', 'Api\PostController@index')->middleware(('api_token_check'));

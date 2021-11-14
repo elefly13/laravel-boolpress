@@ -22,7 +22,7 @@ export default {
         return {
             url: 'http://http://127.0.0.1:8001/api/posts',
             posts:[],
-            api_token: ''
+            api_token: 'to3s0JivFr2F3mWNuywCyreT2QuMygWSv1e0t7DpTBEKIn1mAdtxrO1faTTaT7fE5912ohiIBvY0cYu6'
         }
     },
     created() {
@@ -39,7 +39,7 @@ export default {
                 headers: { Authorization: `Bearer ${this.api_token}`}
             };
 
-            axios.get(this.url, bodyParameters, config)
+            axios.post(this.url, bodyParameters, config)
                 .then(response => {
                     // console.log(response.data.result);
                     this.posts = response.data.result;

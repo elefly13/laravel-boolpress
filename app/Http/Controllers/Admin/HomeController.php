@@ -32,6 +32,7 @@ class HomeController extends Controller
         $user = Auth::user();
         $user->api_token = $api_token;
         $user->save();
+        return redirect()->route('admin.profile');
     }
 
 

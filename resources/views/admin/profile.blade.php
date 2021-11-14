@@ -13,7 +13,7 @@
                     @if (Auth::user()->api_token)
                         <div>{{ Auth::user()->api_token}}</div>
                     @else
-                        <form action="{{ route('admin.generate_token')}}" method="post">
+                        <form action="{{ route('admin.generate-token')}}" method="post">
                             @csrf
                             @method('POST')
 
