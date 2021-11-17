@@ -20,7 +20,7 @@ export default {
 
     data() {
         return {
-            url: 'http://http://127.0.0.1:8001/api/posts',
+            url: 'http://127.0.0.1:8000/api/posts',
             posts:[],
             api_token: 'to3s0JivFr2F3mWNuywCyreT2QuMygWSv1e0t7DpTBEKIn1mAdtxrO1faTTaT7fE5912ohiIBvY0cYu6'
         }
@@ -41,8 +41,8 @@ export default {
 
             axios.post(this.url, bodyParameters, config)
                 .then(response => {
-                    // console.log(response.data.result);
-                    this.posts = response.data.result;
+                    console.log(response.data.results);
+                    this.posts = response.data.results;
                 })
                 .catch();
 

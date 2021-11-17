@@ -65,6 +65,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
         // aggiungiamo qui il nostro nuovo middleware, con una chiave a piacere
-        'api_token_check' => \App\Http\Middleware\CheckApiToken::class
+        'api_token_check' => \App\Http\Middleware\CheckApiToken::class,
     ];
 }

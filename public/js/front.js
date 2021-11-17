@@ -1953,7 +1953,7 @@ __webpack_require__.r(__webpack_exports__);
   name: 'Main',
   data: function data() {
     return {
-      url: 'http://http://127.0.0.1:8001/api/posts',
+      url: 'http://127.0.0.1:8000/api/posts',
       posts: [],
       api_token: 'to3s0JivFr2F3mWNuywCyreT2QuMygWSv1e0t7DpTBEKIn1mAdtxrO1faTTaT7fE5912ohiIBvY0cYu6'
     };
@@ -1975,8 +1975,8 @@ __webpack_require__.r(__webpack_exports__);
         }
       };
       axios.post(this.url, bodyParameters, config).then(function (response) {
-        // console.log(response.data.result);
-        _this.posts = response.data.result;
+        console.log(response.data.results);
+        _this.posts = response.data.results;
       })["catch"]();
     }
   }

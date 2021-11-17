@@ -16,3 +16,4 @@ import App from './views/App'
     render: h =>h(App)
 
 });
+

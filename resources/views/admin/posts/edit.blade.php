@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 <h1>Modifica post</h1>
-                <form action="{{ route('admin.posts.update', $post->id)}}" method="POST">
+                <form action="{{ route('admin.posts.update', $post->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -22,6 +22,22 @@
                             <div class="alert alert-danger">{{ $message }}</div> 
                         @enderror
                     </div>
+
+                    {{-- inserimento immagine cover --}}
+                    <div class="form-group">
+                        @if ($post->cover)
+                            <p>Immagine di copertina presente</p>
+                            <img src="{{ asset('storage/' . $post->cover) }}" alt="{{ $post->title }}">
+                        @else
+                            <p>Immagine di copertina non presente</p>
+                        @endif
+                        <label for="image" >Immagine di copertina</label><br>
+                        <input type="file" id="image" name="image" @error('image') is-invalid @enderror>
+                        @error('image')
+                            <div class="alert alert-danger">{{ $message}}</div> 
+                        @enderror
+                    </div>
+                    {{-- fine inserimento immagine cover  --}}
                     <div class="form-group">
                         <label for="category_id">Categoria</label>
                         <select name="category_id" id="category_id" class="form-control">
@@ -40,7 +56,7 @@
                         @foreach ($tags as $tag)
                             <div class="form-check form-check-inline">
                                 @if($errors->any())
-                                    <input {{ in_array($tag->id, old('tags', [])) ? 'checked' : null }} value="{{ $tag->id }}" id="{{ 'tag' . $tag->id }}" type="checkbox" name="tags[]" class="form-check-input">
+                                    <input {{ in_array($tag->id, old('tags', )) ? 'checked' : null }} value="{{ $tag->id }}" id="{{ 'tag' . $tag->id }}" type="checkbox" name="tags[]" class="form-check-input">
                                     <label for="{{ 'tag' . $tag->id }}" class="form-check-label">{{ $tag->name }}</label>
                                 @else
                                     <input {{ $post->tags->contains($tag) ? 'checked' : null }} value="{{ $tag->id }}" id="{{ 'tag' . $tag->id }}" type="checkbox" name="tags[]" class="form-check-input">

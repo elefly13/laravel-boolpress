@@ -17,7 +17,7 @@ class CheckApiToken
     public function handle($request, Closure $next)
     {
         // recupero della autorizzazione token dalla request 
-        $auth_token = $request->Header('authorization');
+        $auth_token = $request->header('authorization');
 
         // verifico se è presente un token di autorizzazione
         if(empty($auth_token)) {

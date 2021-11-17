@@ -16,7 +16,7 @@
                     </div>
                 @endif --}}
 
-                <form action="{{ route('admin.posts.store')}}" method="POST">
+                <form action="{{ route('admin.posts.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
                     <div class="form-group">
@@ -33,6 +33,16 @@
                             <div class="alert alert-danger">{{ $message}}</div> 
                         @enderror
                     </div>
+{{-- inserimento immagine cover --}}
+                    <div class="form-group">
+                        <label for="image" >Immagine di copertina</label><br>
+                        <input type="file" id="image" name="image" @error('image') is-invalid @enderror>
+                        @error('image')
+                            <div class="alert alert-danger">{{ $message}}</div> 
+                        @enderror
+                    </div>
+{{-- fine inserimento immagine cover  --}}
+
                     <div class="form-group">
                         <label for="category_id">Categoria</label>
                         <select name="category_id" id="category_id" class="form-control">
@@ -63,5 +73,6 @@
             </div>
         </div>
     </div>
+
     
 @endsection

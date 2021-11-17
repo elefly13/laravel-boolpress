@@ -87,7 +87,7 @@ class PostController extends Controller
     {
         //
     }
-    public function listPostsApi()
+    public function listPostApi()
     {
         return view('api.home');
     }

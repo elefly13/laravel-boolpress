@@ -9,6 +9,10 @@
             POST
           </div>
           <div class="card-body">
+            @if ($post->cover)
+            <img src="{{ asset('storage/' . $post->cover) }}" alt="{{ $post->title }}">
+                
+            @endif
             <h5 class="card-title">{{ $post->title }}</h5>
             <p class="card-text">{{ $post->content }}</p>
             <a href="{{ route('posts.index')}}" class="btn btn-primary">Torna ai posts</a>
