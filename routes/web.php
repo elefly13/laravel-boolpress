@@ -23,6 +23,10 @@ Route::get('/', 'HomeController@index')->name('index');
 
  Route::get('/vue/posts', 'HomeController@listPostApi')->name('list-post-api');
 
+ Route::get('guest/contact', 'HomeController@contact')->name('contacts');
+ Route::post('guest/contact', 'HomeController@handleContactForm')->name('contacts.send');
+ Route::get('/thank-you', 'HomeController@thankYou')->name('contacts.thank-you');
+
 
 
 // serie di rotte che gestisconotutto il meccanismo di autenticazione
